@@ -9,16 +9,13 @@ class Timer {
 		this.durationInput = durationInput;
 		this.startButton = startButton;
 		this.puaseButton = puaseButton;
-		this.timeLeft = parseFloat(this.durationInput.value);
-		console.log(`${this.timeLeft} ${typeof this.timeLeft}`);
-		console.log(this);
-
+    
 		this.startButton.addEventListener("click", this.start);
 		this.puaseButton.addEventListener("click", this.pause);
 	}
 
 	start = () => {
-		this.tick();
+		this.timeLeft = parseFloat(this.durationInput.value);
 		this.intervalId = setInterval(this.tick, 1000);
 	};
 
@@ -27,7 +24,6 @@ class Timer {
 	};
 
 	tick = () => {
-		console.log(`tick`);
 		this.timeLeft = this.timeLeft - 1
 		this.durationInput.value = this.timeLeft
 		console.log(this.durationInput.value);
